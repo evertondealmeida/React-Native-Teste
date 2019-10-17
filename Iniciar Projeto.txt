@@ -1,0 +1,56 @@
+****Exemplos:    
+    *Uber:
+        >https://www.youtube.com/watch?v=bg-U0xZwcRk
+***Iniciar o projeto
+    *Exemplos:
+        >https://www.youtube.com/watch?v=XcU9GEUZTQA
+        >https://docs.rocketseat.dev/ambiente-react-native/android/windows
+
+    *Comandos:
+        >Abrir o terminal na pasta selecionada.
+        >Digitar: react-native init projeto
+        >Entrar na pasta projeto: cd projeto
+        >Depois de confidurar as variaveis de ambiente, entrar na pasta:
+            cd C:\Android\Sdk\tools\bin\sdkmanager  "platform-tools" "platforms;android-27" "build-tools;27.0.3"
+        >Digitar: abd devices  - Para verificar se o celular esta aparecendo na lista.
+        >Voltar para pasta: C:\projetos\Monitoramento\projeto
+        >Digitar: react-native run-android
+***Firebase
+    *Exemplo:
+        >https://www.youtube.com/watch?v=MxXyR0CN4v0
+    *Comandos
+
+***Erros:
+    >Caso o smartphone não esteja na lista:
+        >Baixar e instalar os Drivers do smart.
+        >Reiniciar o pc.
+    >Unable to load script from assets 'index.android.bundle'. Make sure...
+        Esse erro geralmente acontece porque o sistema não conseguiu criar o bundle inicial que contém todo o código Javascript da aplicação.
+        >Criar uma pasta assets dentro da pasta android/app/src/main.
+        >Digitar em C:\projetos\Monitoramento\projeto:
+             react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/
+        >Feche as abas do terminal e rode:
+             react-native run-android
+    >react-native run-android: FAILURE: Build failed with an exception.
+        Esse erro pode acontecer por muitos motivos, mas na maioria das vezes é algum cache que precisa ser deletado.
+        >Digitar em C:\projetos\Monitoramento\projeto:
+            cd android && gradlew clean && cd .. && react-native run-android
+    >Expressão regular inválida:
+        >Entrar em:
+            C:\projetos\Monitoramento\projeto\node_modules\metro-config\src\defaults\blacklist.js   
+            >Trocar:
+                var sharedBlacklist = [
+                    /node_modules[/\\]react[/\\]dist[/\\].*/,
+                    /website\/node_modules\/.*/,
+                    /heapCapture\/bundle\.js/,
+                    /.*\/__tests__\/.*/
+                ];
+                Por:
+                var sharedBlacklist = [
+                    /node_modules[\/\\]react[\/\\]dist[\/\\].*/,
+                    /website\/node_modules\/.*/,
+                    /heapCapture\/bundle\.js/,
+                    /.*\/__tests__\/.*/
+                ];
+
+    

@@ -1,0 +1,18 @@
+***Firebase
+    *Exemplo:
+        >https://www.youtube.com/watch?v=MxXyR0CN4v0
+    *Comandos:
+        >Baixar dependencia: C:\projetos\Monitoramento\projeto
+            >Digitar: npm install react-native-firebase
+        >Criar link com do react-native com firebase:
+            >Digitar: react-native link react-native-firebase
+            
+
+***Erros:
+
+react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res 
+
+   cd (C:\projetos\Monitoramento\projeto/android folder) && gradlew clean && cd .. && react-native run-android
+
+
+    
