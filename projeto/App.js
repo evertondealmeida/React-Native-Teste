@@ -1,24 +1,8 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
 
-import React from 'react';
-import {
-  Platform,
-  StyleSheet,
-  View,
-  Text,
-  TextInput,
-  TouchableOpacity,
-} from 'react-native';
-
-import firebase from 'reacti-native-firebase';
-
-const App: () => React$Node = () => {
+import React, { Component } from 'react';
+import { Text, View, TextInput,StyleSheet, TouchableOpacity } from 'react-native';
+import firebase from 'react-native-firebase';
+export default class App extends Component {
     state = {
         email:'',
         password:'',
@@ -34,36 +18,39 @@ const App: () => React$Node = () => {
             console.log(err);
         }
     }
-    return ( 
-        <View style={styles.container}>
-             <TextInput 
-                style={styles.input}
-                placeholder="Digite seu email"
-                value={this.state.email}
-                onChangeText={email => this.setState({email})}
-            />
-            <TextInput 
-                style={styles.input}
-                placeholder="Digite sua senha"
-                value={this.state.password}
-                onChangeText={password => this.setState({password})}
-            />
-            <TouchableOpacity style={styles.button} onPress={this.login}>
-                <Text style={styles.buttonText}>Logar</Text>
-            </TouchableOpacity>
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.textWelcome}>Sejá Bem-Vindo</Text> 
+        <Text style={styles.textTitle}> Sistema de Monitoramento Veícular </Text>
+        <TextInput 
+            style={styles.input}
+            placeholder="Digite seu email"
+            value={this.state.email}
+            onChangeText={email => this.setState({email})}
+        />
+        <TextInput 
+            style={styles.input}
+            placeholder="Digite sua senha"
+            value={this.state.password}
+            onChangeText={password => this.setState({password})}
+        />
+        <TouchableOpacity style={styles.button} onPress={this.login}>
+            <Text style={styles.buttonText}>Logar</Text>
+        </TouchableOpacity>
             { this.state.isAuthenticated ? <Text>Logado com sucesso</Text>:null}
-        </View>
+      </View>
     );
-};
-
+  }
+}
 const styles = StyleSheet.create({
     container: {
-        flex:1,
+        flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#333', 
-        padding: 20,
-  },
+        backgroundColor: '#FFF', 
+        margin: 10
+    },
     input: {
         height: 45,
         backgroundColor: '#FFF',
@@ -71,7 +58,7 @@ const styles = StyleSheet.create({
         borderColor: '#EEE',
         borderWidth: 1,
         paddingHorizontal: 20,
-        marginBottom: 10,
+        marginBottom: 10
     }, 
     button: {
         height: 45,
@@ -79,12 +66,18 @@ const styles = StyleSheet.create({
         alignSelf: 'stretch',
         paddingHorizontal: 20,   
         justifyContent: 'center',
-        alignItems: 'center',
+        alignItems: 'center'
     },
     buttonText:{
         color: '#FFF',
-        fontWeight: 'bold',
+        fontWeight: 'bold'
     },
+    textWelcome:{
+        fontSize: 30
+    },
+    textTitle:{
+        height: 100,
+        fontSize: 20
+    }
 });
 
-export default App;
