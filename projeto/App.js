@@ -38,7 +38,7 @@ export default class App extends Component {
         <TouchableOpacity style={styles.button} onPress={this.login}>
             <Text style={styles.buttonText}>Logar</Text>
         </TouchableOpacity>
-            { this.state.isAuthenticated ? <Text>Logado com sucesso</Text>:null}
+            { this.state.isAuthenticated ? <Text>Logado com sucesso</Text>:<Text>Email ou senha inválidos</Text>}
       </View>
     );
   }
