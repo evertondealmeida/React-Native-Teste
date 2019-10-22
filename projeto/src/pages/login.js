@@ -14,9 +14,10 @@ export default class App extends Component {
     login = async () => { 
         const {email, password} = this.state;
         try{
-            const user = await firebase.auth().signInWithEmailAndPassword(email, password);
+            const userAuthenticated = await firebase.auth().signInWithEmailAndPassword(email, password);
+            let user= userAuthenticated.user.uid;
             this.setState({isAuthenticated: true});
-            this.state.isAuthenticated ? this.props.navigation.navigate("Home"):this.props.navigation.navigate("Login");
+            this.state.isAuthenticated ? this.props.navigation.navigate("Home",{uid: user}):this.props.navigation.navigate("Login");
             console.log(user);
         } catch (err) {
             this.props.navigation.navigate("Login");
