@@ -1,8 +1,11 @@
 
 import React, { Component } from 'react';
-import { Text, View, TextInput,StyleSheet, TouchableOpacity } from 'react-native';
+import { Text, View, TextInput,StyleSheet, TouchableOpacity} from 'react-native';
 import firebase from 'react-native-firebase';
 export default class App extends Component {
+    static navigationOptions = {
+        title: "Biri Sistemas e Automação"
+    };
     state = {
         email:'',
         password:'',
@@ -13,11 +16,14 @@ export default class App extends Component {
         try{
             const user = await firebase.auth().signInWithEmailAndPassword(email, password);
             this.setState({isAuthenticated: true});
+            this.state.isAuthenticated ? this.props.navigation.navigate("Home"):this.props.navigation.navigate("Login");
             console.log(user);
         } catch (err) {
+            this.props.navigation.navigate("Login");
             console.log(err);
         }
     }
+    
   render() {
     return (
       <View style={styles.container}>
@@ -35,10 +41,12 @@ export default class App extends Component {
             value={this.state.password}
             onChangeText={password => this.setState({password})}
         />
-        <TouchableOpacity style={styles.button} onPress={this.login}>
+        <TouchableOpacity 
+            style={styles.button} 
+            onPress={this.login}>
             <Text style={styles.buttonText}>Logar</Text>
         </TouchableOpacity>
-            { this.state.isAuthenticated ? <Text>Logado com sucesso</Text>:<Text>Email ou senha inválidos</Text>}
+            
       </View>
     );
   }
