@@ -27,6 +27,9 @@ export default class Home extends Component {
     state = {
         usuario: []
     };
+    // static navigationOptions = {
+    //     title: usuario
+    // };
     componentDidMount() {
         usuarioRef.on('value', snapshot => {
         let data = snapshot.val();
@@ -39,6 +42,8 @@ export default class Home extends Component {
     }
     render() {
         const { navigation } = this.props;
+        let user= this.state.usuario[0];
+        console.log(user);
         return (
             
             <View style={styles.container}>
@@ -48,8 +53,9 @@ export default class Home extends Component {
                 ) : (
                     <Text>No usuario</Text>
                 )}
+                
             </View>
-    
+            
         );
     }
 }
