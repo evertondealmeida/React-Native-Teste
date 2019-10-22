@@ -34,7 +34,7 @@
     >react-native run-android: FAILURE: Build failed with an exception.
         Esse erro pode acontecer por muitos motivos, mas na maioria das vezes é algum cache que precisa ser deletado.
         >Digitar em C:\projetos\Monitoramento\projeto:
-            cd android && gradlew clean && cd .. && react-native run-android
+            cd android && ./gradlew clean && cd .. && react-native run-android
     >Expressão regular inválida:
         >Entrar em:
             C:\projetos\Monitoramento\projeto\node_modules\metro-config\src\defaults\blacklist.js   

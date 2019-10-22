@@ -1,13 +1,27 @@
 ***Firebase
-    *Exemplo:
+    *Exemplo Auth:
         >https://www.youtube.com/watch?v=MxXyR0CN4v0
+    *Exemplo Banco:
+        >https://medium.com/mindorks/firebase-realtime-database-with-react-native-5f357c6ee13b
+        
     *Comandos:
         >Baixar dependencia: C:\projetos\Monitoramento\projeto
             >Digitar: npm install react-native-firebase
         >Criar link com do react-native com firebase:
             >Digitar: react-native link react-native-firebase
-            
-
+        >Instalar firebase no projeto:
+            >Digitar: npm install firebase --save    
+    *Script:
+        >const firebaseConfig = {
+                                apiKey: "AIzaSyDX6eU5RpS2ANGZTFXCpwsI2yMgAtzg4N4",
+                                authDomain: "react-native-firebase-807a1.firebaseapp.com",
+                                databaseURL: "https://react-native-firebase-807a1.firebaseio.com",
+                                projectId: "react-native-firebase-807a1",
+                                storageBucket: "react-native-firebase-807a1.appspot.com",
+                                messagingSenderId: "529729039885",
+                                appId: "1:529729039885:web:441611cc99e4448b412f44",
+                                measurementId: "G-9CLC3HL2Y9"
+         };
 ***Erros:
     >Entrar em C:\projetos\Monitoramento\projeto
     >Digitar: cd android && ./gradlew clean && cd .. && react-native run-android
