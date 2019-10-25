@@ -25,11 +25,14 @@ let usuarioRef = firebaseDatabase.ref('/usuario');
 // );
 export default class Home extends Component {
     state = {
-        usuario: []
+        usuario: [{}],
+        
     };
-    // static navigationOptions = {
-    //     title: usuario
-    // };
+
+    static navigationOptions = {
+        
+        title: "Biri Sistemas e Automação"
+    };
     componentDidMount() {
         usuarioRef.on('value', snapshot => {
         let data = snapshot.val();
@@ -42,18 +45,18 @@ export default class Home extends Component {
     }
     render() {
         const { navigation } = this.props;
-        let user= this.state.usuario[0];
+        let user= this.state.usuario[0].placa;
         console.log(user);
         return (
             
             <View style={styles.container}>
-                <Text>{JSON.stringify(navigation.getParam('uid', 'default value'))}</Text>
+                
                 {this.state.usuario.length > 0 ? (
                     <ItemComponent usuario={this.state.usuario} />
                 ) : (
                     <Text>No usuario</Text>
                 )}
-                
+                <Text>{JSON.stringify(navigation.getParam('uid', 'default value'))}</Text>
             </View>
             
         );
@@ -62,7 +65,6 @@ export default class Home extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     justifyContent: 'center',
     backgroundColor: '#ebebeb'
   }

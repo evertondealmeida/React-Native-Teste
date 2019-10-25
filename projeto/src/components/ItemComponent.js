@@ -13,7 +13,7 @@ export default class ItemComponent extends Component {
         {this.props.usuario.map((item, index) => {
           return (
             <View key={index}>
-              <Text style={styles.itemtext}>{JSON.stringify(item)}</Text>
+              <Text style={styles.itemtext}>{item.placa?item.placa:null}</Text>
             </View>
           );
         })}
@@ -23,11 +23,6 @@ export default class ItemComponent extends Component {
 }
 
 const styles = StyleSheet.create({
-  itemsList: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'space-around'
-  },
   itemtext: {
     fontSize: 24,
     fontWeight: 'bold',
